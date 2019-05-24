@@ -7,7 +7,6 @@ import {ChatService} from './chat.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'socket-app';
   recivedMessage: any;
 
   constructor(private chat: ChatService) {
@@ -15,7 +14,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.chat.messages.subscribe(msg => {
-      this.recivedMessage = JSON.stringify(msg);
+      console.log(msg);
+      this.recivedMessage = msg;
     });
   }
 
